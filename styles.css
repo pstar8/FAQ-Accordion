@@ -3,6 +3,16 @@
     src: url(./assets/fonts/static/WorkSans-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'WorkSans-Bold';
+    src: url(./assets/fonts/static/WorkSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'WorkSans-SemiBold';
+    src: url(./assets/fonts/static/WorkSans-SemiBold.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -16,11 +26,11 @@ body {
     text-decoration: none;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding: 2.5rem;
     padding-bottom: 10rem;
 }
 
-body .container{
+body .accordion{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,57 +39,85 @@ body .container{
     padding: 2rem;
     color: hsl(292, 42%, 14%);
     border-radius: 15px;
+    box-shadow: 0 32px 56px 0 rgba(80, 0, 118, 0.1);
 }
 
 h1 {
     font-size: 2.75rem;
     font-weight: 700;
+    font-family: 'WorkSans-Bold';
 }
 
-body .header{
+header{
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    padding-bottom: .5rem;
 }
  
-body .heading .icon_minus{
+body .question_title .icon_minus{
     display: none;
 }
 
-body div{
-    padding: .175rem 0;
+main div{
+    padding:.50rem 0;
+    margin: .20rem 0;
 }
 
-body .questions{
+main .question{
     border-bottom: 1px solid #eee;
 }
 
-body div .heading{
+main .question:nth-last-child(1){
+    border-bottom: none;
+}
+
+main .question_title{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
-
-body div p {
+ main .response {
     max-height:0;
     overflow: hidden;
     color: hsl(292, 16%, 49%);
     font-weight: 400;
-    font-size: smaller;
-}
-
-body div h4{
+    line-height: 1.5rem;
     font-size: .9rem;
+    font-family: 'WorkSans-SemiBold';
+    transition: 0.45s ease;
 }
 
-h4:hover{
-    color: hsl(291, 100%, 50%);
+main .response.open{
+    overflow: visible;
+    max-height: 500px;
+}
+
+h2{
+    font-size:1rem;
+    font-family: 'WorkSans-Bold';
+}
+
+h2:hover{
+    color: hsl(297, 100%, 50%);
     cursor: pointer;
 }
 
+.faq_icon{
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background-image: url(./assets/images/icon-plus.svg);
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.faq_icon.open{
+    background-image: url(./assets/images/icon-minus.svg);
+    transition: 0.3s ease;
+}
 /* MOBILE DESIGN */
 
 @media screen and (max-width: 767px) {
@@ -89,12 +127,16 @@ h4:hover{
         background-repeat: no-repeat;
         background-position: top;
     }
-    body .container{
+    body .accordion{
         margin-top: 25%;
     }
 
-    body h1 {
+    h1 {
         font-size: 2rem;
+    }
+
+    h2{
+        font-size: .9rem;
     }
 }
 
@@ -106,8 +148,9 @@ h4:hover{
         background-position: top;
     }
 
-    body .container{
-        width: 40%;
-        margin-top: 10%;
+    body .accordion{
+        min-width: 530px;
+        width: 45%;
+        margin-top: 8%;
     }
 }
