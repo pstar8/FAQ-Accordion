@@ -44,7 +44,7 @@ body .accordion{
 
 h1 {
     font-size: 2.75rem;
-    font-weight: 700;
+    font-weight: 800;
     font-family: 'WorkSans-Bold';
 }
 
@@ -86,7 +86,7 @@ main .question_title{
     line-height: 1.5rem;
     font-size: .9rem;
     font-family: 'WorkSans-SemiBold';
-    transition: 0.45s ease;
+    transition: 0.5s ease-in;
 }
 
 main .response.open{
@@ -104,11 +104,17 @@ h2:hover{
     cursor: pointer;
 }
 
+.plus{
+    display: block; 
+}
+.minus{
+    display: none !important;
+}
+
 .faq_icon{
     border: 0px;
     width: 30px;
     height: 30px;
-    background-image: url(./assets/images/icon-plus.svg);
     background-color: transparent;
     cursor: pointer;
     transition: 0.3s ease;
@@ -118,25 +124,36 @@ h2:hover{
     background-image: url(./assets/images/icon-minus.svg);
     transition: 0.3s ease;
 }
+
+.faq_icon.open .minus {
+  display: block; /* Show the minus icon */
+}
+
+.faq_icon.open .plus {
+  display: none; /* Hide the plus icon */
+}
 /* MOBILE DESIGN */
-
 @media screen and (max-width: 767px) {
-
     body{
         background-image: url(./assets/images/background-pattern-mobile.svg);
         background-repeat: no-repeat;
         background-position: top;
+        min-height: 100vh;
+        padding-inline: 1.5rem;
     }
     body .accordion{
         margin-top: 25%;
+        margin: auto !important;
+        padding-inline:2rem ;
     }
 
     h1 {
         font-size: 2rem;
+        font-weight: 800;
     }
 
     h2{
-        font-size: .9rem;
+        font-size: 1rem;
     }
 }
 
