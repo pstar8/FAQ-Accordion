@@ -86,7 +86,7 @@ main .question_title{
     line-height: 1.5rem;
     font-size: .9rem;
     font-family: 'WorkSans-SemiBold';
-    transition: 0.5s ease-in;
+    transition: 0.275s ease-in;
 }
 
 main .response.open{
@@ -122,7 +122,7 @@ h2:hover{
 
 .faq_icon.open{
     background-image: url(./assets/images/icon-minus.svg);
-    transition: 0.3s ease;
+    transition: .3s ease-in-out;
 }
 
 .faq_icon.open .minus {
